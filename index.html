@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Akturk Dental • Shkodër</title>
-  <meta name="description" content="Akturk Dental – klinikë dentare në Shkodër. Rezervoni takim, na kontaktoni në WhatsApp dhe Instagram." />
+  <meta name="description" content="Akturk Dental — klinikë dentare në Shkodër. Rezervoni takim në WhatsApp." />
 
   <style>
     :root{
@@ -14,13 +14,12 @@
       --line:#e6e8ee;
       --card:#f6f7fb;
       --card2:#ffffff;
-      --accent:#0a84ff; /* Apple blue */
+      --accent:#0a84ff;
       --shadow: 0 12px 36px rgba(15, 23, 42, .10);
       --radius: 18px;
       --soft: rgba(15,23,42,.06);
+      --chip: rgba(15,23,42,.05);
     }
-
-    /* Dark theme */
     html[data-theme="dark"]{
       --bg:#0b0f18;
       --text:#f3f4f6;
@@ -30,35 +29,35 @@
       --card2: rgba(255,255,255,.05);
       --shadow: 0 18px 60px rgba(0,0,0,.45);
       --soft: rgba(255,255,255,.08);
+      --chip: rgba(255,255,255,.08);
     }
 
     *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       background: var(--bg);
       color: var(--text);
     }
-    a{ color: inherit; text-decoration:none; }
 
     .wrap{
-      width:min(1080px, 92vw);
+      width:min(1120px, 92vw);
       margin:0 auto;
-      padding:22px 0 64px;
+      padding: 0 0 64px;
     }
 
-    /* Top bar */
     header{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:16px;
-      padding:14px 0 10px;
+      padding: 14px 0;
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: color-mix(in srgb, var(--bg) 86%, transparent);
-      backdrop-filter: blur(12px);
+      z-index: 50;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
 
@@ -66,6 +65,7 @@
       display:flex;
       align-items:center;
       gap:12px;
+      min-width: 220px;
     }
     .logo{
       width:44px;height:44px;border-radius:14px;
@@ -76,25 +76,21 @@
     .logo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
     .brand h1{
-      font-size:16px;
-      margin:0;
-      letter-spacing:.2px;
-      font-weight:900;
+      font-size:16px; margin:0; font-weight:1000; letter-spacing:.2px;
     }
     .brand p{
       margin:2px 0 0;
       font-size:13px;
       color:var(--muted);
-      font-weight:700;
+      font-weight:800;
     }
 
     .rightRow{
       display:flex;
-      gap:10px;
       align-items:center;
+      gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
-      padding-right: 8px;
     }
 
     .btn{
@@ -106,14 +102,18 @@
       border-radius:999px;
       border:1px solid var(--line);
       background: var(--card2);
-      font-weight:900;
+      font-weight:1000;
       text-decoration:none;
       box-shadow: 0 6px 18px var(--soft);
       transition: transform .12s ease, box-shadow .12s ease;
       font-size:14px;
+      white-space: nowrap;
+      cursor:pointer;
     }
-    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 30px var(--soft); }
-
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px var(--soft);
+    }
     .btn.primary{
       background: var(--accent);
       border-color: transparent;
@@ -130,30 +130,48 @@
       border:1px solid var(--line);
       background: var(--card2);
       box-shadow: 0 6px 18px var(--soft);
-      font-weight:900;
+      font-weight:1000;
       cursor:pointer;
       user-select:none;
     }
     .dot{
-      width:34px;height:20px;
-      border-radius:999px;
+      width:34px;height:20px;border-radius:999px;
       position:relative;
-      background: color-mix(in srgb, var(--text) 15%, transparent);
+      background: color-mix(in srgb, var(--text) 12%, transparent);
       border:1px solid var(--line);
     }
     .knob{
-      width:16px;height:16px;
-      border-radius:50%;
-      position:absolute;
-      top:1px; left:1px;
+      width:16px;height:16px;border-radius:50%;
+      position:absolute;top:1px;left:1px;
       background: var(--bg);
       box-shadow: 0 6px 18px var(--soft);
       transition:left .18s ease;
     }
     html[data-theme="dark"] .knob{ left: 16px; }
-    .toggle span{ font-size:13px; color: var(--muted); font-weight:900; }
+    .toggle span{ font-size:13px; color:var(--muted); font-weight:1000; }
 
-    /* Hero */
+    .lang{
+      display:flex;
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius:999px;
+      overflow:hidden;
+      box-shadow: 0 6px 18px var(--soft);
+    }
+    .lang button{
+      border:0;
+      background:transparent;
+      padding:10px 12px;
+      font-weight:1000;
+      cursor:pointer;
+      color: var(--muted);
+      font-size:13px;
+    }
+    .lang button.active{
+      color: var(--text);
+      background: var(--chip);
+    }
+
     .hero{
       margin-top:18px;
       border:1px solid var(--line);
@@ -165,7 +183,7 @@
       padding: 26px;
       box-shadow: var(--shadow);
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap:18px;
       align-items:center;
     }
@@ -181,10 +199,9 @@
       color:var(--muted);
       font-size:15px;
       line-height:1.7;
-      max-width:56ch;
-      font-weight:700;
+      max-width:60ch;
+      font-weight:800;
     }
-
     .mini{
       display:flex;
       gap:10px;
@@ -197,7 +214,7 @@
       border-radius:999px;
       background: var(--card2);
       border:1px solid var(--line);
-      font-weight:900;
+      font-weight:1000;
     }
 
     .heroCard{
@@ -206,32 +223,40 @@
       background: var(--card2);
       padding:16px;
       box-shadow: 0 12px 30px var(--soft);
+      overflow:hidden;
     }
-    .k{
-      font-size:12px;
-      color:var(--muted);
+    .heroImg{
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background: var(--card);
+      margin-top: 12px;
+    }
+    .heroImg img{ width:100%; display:block; object-fit:cover; }
+    .k{ font-size:12px;color:var(--muted);font-weight:1000;margin-bottom:6px;letter-spacing:.2px; }
+    .v{ font-size:15px;font-weight:1000;letter-spacing:.2px; }
+    .sub{ margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6;font-weight:800; }
+    .link{ color: var(--accent); font-weight:1000; }
+
+    .navChips{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: var(--card2);
       font-weight:1000;
-      margin-bottom:6px;
-      letter-spacing:.2px;
-    }
-    .v{
-      font-size:15px;
-      font-weight:1000;
-      letter-spacing:.2px;
-    }
-    .sub{
-      margin-top:8px;
+      box-shadow: 0 6px 18px var(--soft);
+      cursor:pointer;
+      text-decoration:none;
       font-size:13px;
-      color:var(--muted);
-      line-height:1.6;
-      font-weight:700;
-    }
-    .link{
-      color: var(--accent);
-      font-weight:1000;
     }
 
-    /* Grid */
     .grid{
       margin-top:18px;
       display:grid;
@@ -256,11 +281,30 @@
       color:var(--muted);
       font-size:14px;
       line-height:1.75;
-      font-weight:700;
+      font-weight:800;
     }
 
-    /* Team */
-    .team{
+    .list{
+      margin:12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .list li{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: var(--card2);
+      font-weight:900;
+      font-size:14px;
+    }
+    .list span:last-child{ color: var(--muted); font-weight:900; }
+
+    .section{
       margin-top:18px;
       border:1px solid var(--line);
       border-radius: var(--radius);
@@ -268,11 +312,8 @@
       background: var(--card2);
       box-shadow: 0 14px 34px var(--soft);
     }
-    .team h3{
-      margin:0;
-      font-size:16px;
-      font-weight:1000;
-    }
+    .section h3{ margin:0; font-size:16px; font-weight:1000; }
+
     .members{
       margin-top:12px;
       display:grid;
@@ -286,33 +327,32 @@
       background: var(--card);
     }
     .member .name{ font-weight:1000; }
-    .member .role{ color:var(--muted); font-size:13px; margin-top:4px; font-weight:800; }
-    .member .small{ color:var(--muted); font-size:12px; margin-top:8px; line-height:1.55; font-weight:700; }
+    .member .role{ color:var(--muted); font-size:13px; margin-top:4px; font-weight:900; }
+    .member .small{ color:var(--muted); font-size:12px; margin-top:8px; line-height:1.55; font-weight:800; }
 
-    /* Hours */
-    .hours{
-      margin-top:18px;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:18px;
-      background: var(--card2);
-      box-shadow: 0 14px 34px var(--soft);
-    }
-    .hours h3{ margin:0; font-size:16px; font-weight:1000; }
-    table{
+    .hours table, .prices table{
       width:100%;
       border-collapse:collapse;
       margin-top:10px;
       font-size:14px;
     }
-    td{
+    .hours td, .prices td{
       padding:11px 10px;
       border-top:1px solid var(--line);
-      font-weight:800;
+      font-weight:900;
     }
-    td:first-child{ font-weight:1000; }
-    td:last-child{ text-align:right; }
+    .hours td:first-child, .prices td:first-child{ font-weight:1000; }
+    .hours td:last-child, .prices td:last-child{ text-align:right; }
     .closed{ color:#ef4444; }
+
+    .mapBox{
+      margin-top:12px;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background: var(--card);
+    }
+    iframe{ width:100%; border:0; height:320px; display:block; }
 
     footer{
       margin-top:22px;
@@ -325,17 +365,32 @@
       flex-wrap:wrap;
       color:var(--muted);
       font-size:12px;
-      font-weight:800;
+      font-weight:900;
     }
 
-    /* Mobile */
-    @media (max-width: 860px){
+    /* Floating button to ORARI */
+    .floatDown{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      width:52px;height:52px;
+      border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(12px);
+      font-weight:1000;
+      text-decoration:none;
+      z-index:9999;
+      color:#fff;
+    }
+
+    @media (max-width: 900px){
       .hero{ grid-template-columns:1fr; }
       .grid{ grid-template-columns:1fr; }
       .members{ grid-template-columns:1fr; }
       .hero h2{ font-size:28px; }
-      header{ padding: 12px 0; }
-      .rightRow{ padding-right: 0; }
+      iframe{ height:280px; }
     }
   </style>
 </head>
@@ -349,136 +404,414 @@
         </div>
         <div>
           <h1>Akturk Dental</h1>
-          <p>Shërbime dentare • Shkodër</p>
+          <p data-i18n="top_sub">Shërbime dentare • Shkodër</p>
         </div>
       </div>
 
       <div class="rightRow">
-        <div class="toggle" id="themeToggle">
+        <div class="lang" title="Language">
+          <button id="langSQ" class="active">SQ</button>
+          <button id="langEN">EN</button>
+          <button id="langIT">IT</button>
+        </div>
+
+        <div class="toggle" id="themeToggle" title="Theme">
           <div class="dot"><div class="knob"></div></div>
           <span id="themeText">Light</span>
         </div>
 
-        <a class="btn primary" target="_blank"
-           href="https://wa.me/355695820147?text=Pershendetje%20Akturk%20Dental%2C%20dua%20te%20rezervoj%20nje%20takim.">
+        <a class="btn" href="#services" data-i18n="nav_services">Shërbimet</a>
+        <a class="btn" href="#prices" data-i18n="nav_prices">Çmimet</a>
+        <a class="btn" href="#orari" data-i18n="nav_hours">Orari</a>
+
+        <a class="btn primary" id="whBtn" target="_blank"
+           href="https://wa.me/355695820147?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20dental%20services%20and%20book%20an%20appointment.%20Could%20you%20please%20help%20me%3F">
           WhatsApp
         </a>
 
-        <a class="btn" target="_blank" href="https://www.instagram.com/akturkdental/">
+        <a class="btn" href="tel:+355695820147" data-i18n="call_btn">Ara</a>
+
+        <a class="btn" target="_blank" href="https://www.instagram.com/akturkdental/" data-i18n="ig_btn">
           Instagram
         </a>
       </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="top">
       <div>
-        <h2>Kujdes i pastër. Rezultat premium.</h2>
-        <p class="lead">
-          Mirë se vini në Akturk Dental. Fokus në trajtime të sakta, komunikim të qartë dhe estetikë moderne —
-          një përvojë clean, minimaliste dhe shumë profesionale.
+        <h2 data-i18n="hero_title">Kujdes i pastër. Rezultat premium.</h2>
+        <p class="lead" data-i18n="hero_desc">
+          Klinikë dentare moderne në Shkodër. Fokus në pastërti, trajtime të sakta dhe komunikim të qartë.
         </p>
 
         <div class="mini">
-          <span class="pill">✅ Trajtime moderne</span>
-          <span class="pill">✅ Standard i lartë</span>
-          <span class="pill">✅ Komunikim i qartë</span>
+          <span class="pill" data-i18n="pill_1">✅ Sterilizim strikt</span>
+          <span class="pill" data-i18n="pill_2">✅ Standard i lartë</span>
+          <span class="pill" data-i18n="pill_3">✅ Kujdes profesional</span>
+        </div>
+
+        <div class="navChips">
+          <a class="chip" href="#map" data-i18n="chip_map">📍 Lokacioni</a>
+          <a class="chip" href="#prices" data-i18n="chip_prices">💰 Çmimet</a>
+          <a class="chip" href="#orari" data-i18n="chip_hours">🕒 Orari</a>
         </div>
       </div>
 
       <div class="heroCard">
-        <div class="k">📍 Adresa</div>
-        <div class="v">Siper Union bank, Rruga Studenti, Shkodër 4001</div>
+        <div class="k" data-i18n="addr_k">📍 Adresa</div>
+        <div class="v" data-i18n="addr_v">Siper Union bank, Rruga Studenti, Shkodër 4001</div>
         <div class="sub">
           <a class="link" target="_blank"
-             href="https://www.google.com/maps/search/?api=1&query=Siper%20Union%20bank%2C%20Rruga%20Studenti%2C%20Shkod%C3%ABr%204001">
+             href="https://www.google.com/maps/search/?api=1&query=Siper%20Union%20bank%2C%20Rruga%20Studenti%2C%20Shkod%C3%ABr%204001"
+             data-i18n="open_maps">
             Hap në Google Maps →
           </a>
         </div>
 
         <div style="height:12px"></div>
 
-        <div class="k">📞 Kontakt</div>
+        <div class="k" data-i18n="contact_k">📞 Kontakt</div>
         <div class="v">+355 69 582 0147</div>
-        <div class="sub">Kliko WhatsApp për rezervim të shpejtë.</div>
+        <div class="sub" data-i18n="contact_sub">Kliko WhatsApp për rezervim të shpejtë.</div>
+
+        <div class="heroImg" title="Waiting area">
+          <img src="assets/bekleme.jpeg" alt="Waiting area">
+        </div>
       </div>
     </section>
 
-    <section class="grid">
+    <section class="grid" id="services">
       <div class="card">
-        <h3>Shërbimet</h3>
-        <p>
-          Kontroll & konsultë • Pastrim profesional • Mbushje • Trajtime estetike • Këshillim për higjienë orale.
-        </p>
+        <h3 data-i18n="services_title">Shërbimet</h3>
+        <p data-i18n="services_desc">6 shërbimet kryesore që ofrojmë:</p>
+        <ul class="list">
+          <li><span data-i18n="srv_1">Implant</span><span data-i18n="srv_1b">Implant</span></li>
+          <li><span data-i18n="srv_2">Trajtim kanali</span><span data-i18n="srv_2b">Root canal</span></li>
+          <li><span data-i18n="srv_3">Kurorë (Kaplama)</span><span data-i18n="srv_3b">Crown</span></li>
+          <li><span data-i18n="srv_4">Zbardhim</span><span data-i18n="srv_4b">Whitening</span></li>
+          <li><span data-i18n="srv_5">Mbushje (Dolgu)</span><span data-i18n="srv_5b">Filling</span></li>
+          <li><span data-i18n="srv_6">Pastrimi profesional</span><span data-i18n="srv_6b">Cleaning</span></li>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>Pse ne?</h3>
-        <p>
-          Punë precize, sterilizim strikt dhe qasje e qetë me pacientin.
-          Qëllimi është rezultat natyral, i sigurt dhe i pastër.
+        <h3 data-i18n="why_title">Pse ne?</h3>
+        <p data-i18n="why_desc">
+          Ambient shumë i pastër, pajisje moderne dhe qasje e qetë me pacientin. Qëllimi është rezultat i sigurt dhe natyral.
         </p>
+        <ul class="list" style="margin-top:12px">
+          <li><span data-i18n="trust_1">Sterilizim & higjienë</span><span data-i18n="trust_1b">Safety</span></li>
+          <li><span data-i18n="trust_2">Komunikim i qartë</span><span data-i18n="trust_2b">Clarity</span></li>
+          <li><span data-i18n="trust_3">Rezultat premium</span><span data-i18n="trust_3b">Quality</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="team">
-      <h3>Kush punon këtu</h3>
+    <section class="section prices" id="prices">
+      <h3 data-i18n="prices_title">Çmimet (ALL)</h3>
+      <table>
+        <tr><td data-i18n="p1">Kontroll / Konsultë</td><td>1.000 – 2.000</td></tr>
+        <tr><td data-i18n="p2">Pastrimi profesional</td><td>3.000 – 5.000</td></tr>
+        <tr><td data-i18n="p3">Mbushje (Dolgu)</td><td>3.000 – 7.000</td></tr>
+        <tr><td data-i18n="p4">Trajtim kanali</td><td>6.000 – 15.000</td></tr>
+        <tr><td data-i18n="p5">Zbardhim</td><td>10.000 – 25.000</td></tr>
+        <tr><td data-i18n="p6">Kurorë (Crown)</td><td>15.000 – 35.000</td></tr>
+        <tr><td data-i18n="p7">Implant</td><td>60.000 – 120.000</td></tr>
+      </table>
+      <p class="sub" data-i18n="prices_note" style="margin-top:12px">
+        Çmimet janë orientuese. Për çmim të saktë, na shkruani në WhatsApp.
+      </p>
+    </section>
+
+    <section class="section" id="team">
+      <h3 data-i18n="team_title">Ekipi</h3>
       <div class="members">
         <div class="member">
-          <div class="name">Dr. Akturk</div>
-          <div class="role">Dentist</div>
-          <div class="small">Trajtime moderne dhe estetikë. Standard i lartë pastërtie.</div>
+          <div class="name">Dr. Emre Akturk</div>
+          <div class="role" data-i18n="role_dentist">Dentist</div>
+          <div class="small" data-i18n="bio_1">Trajtime moderne dhe kujdes profesional për pacientin.</div>
         </div>
         <div class="member">
-          <div class="name">Asistent/e</div>
-          <div class="role">Asistent dentar</div>
-          <div class="small">Sterilizim, organizim dhe ndihmë profesionale për çdo pacient.</div>
+          <div class="name">Dr. Ditmir Borici</div>
+          <div class="role" data-i18n="role_dentist">Dentist</div>
+          <div class="small" data-i18n="bio_2">Standard i lartë dhe punë e saktë në çdo trajtim.</div>
+        </div>
+        <div class="member">
+          <div class="name">Egi Gjori</div>
+          <div class="role" data-i18n="role_reception">Reception & Dental Assistant</div>
+          <div class="small" data-i18n="bio_3">Organizim i radhës, çmime dhe asistencë në klinikë.</div>
+        </div>
+        <div class="member">
+          <div class="name" data-i18n="asst_name">Asistent/e</div>
+          <div class="role" data-i18n="role_asst">Dental Assistant</div>
+          <div class="small" data-i18n="bio_4">Sterilizim, përgatitje dhe ndihmë gjatë trajtimeve.</div>
         </div>
       </div>
     </section>
 
-    <section class="hours">
-      <h3>Orari i punës</h3>
+    <section class="section hours" id="orari">
+      <h3 data-i18n="hours_title">Orari i punës</h3>
       <table>
-        <tr><td>E enjte</td><td>09:00–19:00</td></tr>
-        <tr><td>E premte</td><td>09:00–19:00</td></tr>
-        <tr><td>E shtunë</td><td>09:00–19:00</td></tr>
-        <tr><td>E diel</td><td class="closed">Mbyllur</td></tr>
-        <tr><td>E hënë</td><td>09:00–19:00</td></tr>
-        <tr><td>E martë</td><td>09:00–19:00</td></tr>
-        <tr><td>E mërkurë</td><td>09:00–19:00</td></tr>
+        <tr><td data-i18n="d_thu">E enjte</td><td>09:00–19:00</td></tr>
+        <tr><td data-i18n="d_fri">E premte</td><td>09:00–19:00</td></tr>
+        <tr><td data-i18n="d_sat">E shtunë</td><td>09:00–19:00</td></tr>
+        <tr><td data-i18n="d_sun">E diel</td><td>09:00–19:00</td></tr>
+        <tr><td data-i18n="d_mon">E hënë</td><td class="closed" data-i18n="closed">Mbyllur</td></tr>
+        <tr><td data-i18n="d_tue">E martë</td><td>09:00–16:00</td></tr>
+        <tr><td data-i18n="d_wed">E mërkurë</td><td>09:00–19:00</td></tr>
       </table>
     </section>
 
-    <footer>
+    <section class="section" id="map">
+      <h3 data-i18n="map_title">Lokacioni</h3>
+      <p class="sub" data-i18n="map_sub" style="margin-top:10px">
+        Na gjeni në Shkodër. Kliko butonin Maps ose shiko hartën më poshtë.
+      </p>
+      <div class="mapBox">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Siper%20Union%20bank,%20Rruga%20Studenti,%20Shkod%C3%ABr%204001&output=embed">
+        </iframe>
+      </div>
+    </section>
+
+    <footer id="contact">
       <div>© Akturk Dental • Shkodër</div>
-      <div>Created by Albanian</div>
+      <div data-i18n="footer_right">Created by Albanian</div>
     </footer>
   </div>
 
+  <a class="floatDown" href="#orari" title="Orari">↓</a>
+
   <script>
-    // Theme: auto from system, saved in localStorage
+    // Theme
     const root = document.documentElement;
-    const toggle = document.getElementById("themeToggle");
-    const text = document.getElementById("themeText");
+    const themeToggle = document.getElementById("themeToggle");
+    const themeText = document.getElementById("themeText");
 
     function setTheme(mode){
       root.setAttribute("data-theme", mode);
       localStorage.setItem("theme", mode);
-      text.textContent = mode === "dark" ? "Dark" : "Light";
+      themeText.textContent = mode === "dark" ? "Dark" : "Light";
     }
-
-    const saved = localStorage.getItem("theme");
-    if(saved){
-      setTheme(saved);
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme){
+      setTheme(savedTheme);
     } else {
       const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
       setTheme(prefersDark ? "dark" : "light");
     }
-
-    toggle.addEventListener("click", () => {
+    themeToggle.addEventListener("click", () => {
       const current = root.getAttribute("data-theme") || "light";
       setTheme(current === "dark" ? "light" : "dark");
     });
+
+    // i18n (SQ / EN / IT)
+    const dict = {
+      sq: {
+        top_sub: "Shërbime dentare • Shkodër",
+        nav_services: "Shërbimet",
+        nav_prices: "Çmimet",
+        nav_hours: "Orari",
+        call_btn: "Ara",
+        ig_btn: "Instagram",
+        hero_title: "Kujdes i pastër. Rezultat premium.",
+        hero_desc: "Klinikë dentare moderne në Shkodër. Fokus në pastërti, trajtime të sakta dhe komunikim të qartë.",
+        pill_1: "✅ Sterilizim strikt",
+        pill_2: "✅ Standard i lartë",
+        pill_3: "✅ Kujdes profesional",
+        chip_map: "📍 Lokacioni",
+        chip_prices: "💰 Çmimet",
+        chip_hours: "🕒 Orari",
+        addr_k: "📍 Adresa",
+        addr_v: "Siper Union bank, Rruga Studenti, Shkodër 4001",
+        open_maps: "Hap në Google Maps →",
+        contact_k: "📞 Kontakt",
+        contact_sub: "Kliko WhatsApp për rezervim të shpejtë.",
+        services_title: "Shërbimet",
+        services_desc: "6 shërbimet kryesore që ofrojmë:",
+        srv_1:"Implant", srv_1b:"Implant",
+        srv_2:"Trajtim kanali", srv_2b:"Root canal",
+        srv_3:"Kurorë (Kaplama)", srv_3b:"Crown",
+        srv_4:"Zbardhim", srv_4b:"Whitening",
+        srv_5:"Mbushje (Dolgu)", srv_5b:"Filling",
+        srv_6:"Pastrimi profesional", srv_6b:"Cleaning",
+        why_title:"Pse ne?",
+        why_desc:"Ambient shumë i pastër, pajisje moderne dhe qasje e qetë me pacientin. Qëllimi është rezultat i sigurt dhe natyral.",
+        trust_1:"Sterilizim & higjienë", trust_1b:"Safety",
+        trust_2:"Komunikim i qartë", trust_2b:"Clarity",
+        trust_3:"Rezultat premium", trust_3b:"Quality",
+        prices_title:"Çmimet (ALL)",
+        p1:"Kontroll / Konsultë",
+        p2:"Pastrimi profesional",
+        p3:"Mbushje (Dolgu)",
+        p4:"Trajtim kanali",
+        p5:"Zbardhim",
+        p6:"Kurorë (Crown)",
+        p7:"Implant",
+        prices_note:"Çmimet janë orientuese. Për çmim të saktë, na shkruani në WhatsApp.",
+        team_title:"Ekipi",
+        role_dentist:"Dentist",
+        role_reception:"Recepsion & Asistente dentare",
+        role_asst:"Asistente dentare",
+        bio_1:"Trajtime moderne dhe kujdes profesional për pacientin.",
+        bio_2:"Standard i lartë dhe punë e saktë në çdo trajtim.",
+        bio_3:"Organizim i radhës, çmime dhe asistencë në klinikë.",
+        bio_4:"Sterilizim, përgatitje dhe ndihmë gjatë trajtimeve.",
+        asst_name:"Asistent/e",
+        hours_title:"Orari i punës",
+        d_thu:"E enjte", d_fri:"E premte", d_sat:"E shtunë",
+        d_sun:"E diel", d_mon:"E hënë", d_tue:"E martë", d_wed:"E mërkurë",
+        closed:"Mbyllur",
+        map_title:"Lokacioni",
+        map_sub:"Na gjeni në Shkodër. Kliko butonin Maps ose shiko hartën më poshtë.",
+        footer_right:"Created by Albanian"
+      },
+      en: {
+        top_sub: "Dental clinic • Shkodër",
+        nav_services: "Services",
+        nav_prices: "Prices",
+        nav_hours: "Hours",
+        call_btn: "Call",
+        ig_btn: "Instagram",
+        hero_title: "Clean care. Premium result.",
+        hero_desc: "Modern dental clinic in Shkodër. Focus on hygiene, precise treatments, and clear communication.",
+        pill_1: "✅ Strict sterilization",
+        pill_2: "✅ High standard",
+        pill_3: "✅ Professional care",
+        chip_map: "📍 Location",
+        chip_prices: "💰 Prices",
+        chip_hours: "🕒 Hours",
+        addr_k: "📍 Address",
+        addr_v: "Siper Union bank, Rruga Studenti, Shkodër 4001",
+        open_maps: "Open in Google Maps →",
+        contact_k: "📞 Contact",
+        contact_sub: "Tap WhatsApp to book quickly.",
+        services_title: "Services",
+        services_desc: "Our top 6 services:",
+        srv_1:"Implant", srv_1b:"Implant",
+        srv_2:"Root canal treatment", srv_2b:"Root canal",
+        srv_3:"Crown", srv_3b:"Crown",
+        srv_4:"Whitening", srv_4b:"Whitening",
+        srv_5:"Filling", srv_5b:"Filling",
+        srv_6:"Professional cleaning", srv_6b:"Cleaning",
+        why_title:"Why us?",
+        why_desc:"Very clean environment, modern equipment, and calm patient care. Our goal is a safe, natural result.",
+        trust_1:"Sterilization & hygiene", trust_1b:"Safety",
+        trust_2:"Clear communication", trust_2b:"Clarity",
+        trust_3:"Premium results", trust_3b:"Quality",
+        prices_title:"Prices (ALL)",
+        p1:"Check-up / Consultation",
+        p2:"Professional cleaning",
+        p3:"Filling",
+        p4:"Root canal treatment",
+        p5:"Whitening",
+        p6:"Crown",
+        p7:"Implant",
+        prices_note:"Prices are approximate. For an exact quote, contact us on WhatsApp.",
+        team_title:"Team",
+        role_dentist:"Dentist",
+        role_reception:"Reception & Dental Assistant",
+        role_asst:"Dental Assistant",
+        bio_1:"Modern treatments and professional patient care.",
+        bio_2:"High standards and precise work for every treatment.",
+        bio_3:"Appointments, pricing, and in-clinic assistance.",
+        bio_4:"Sterilization, preparation, and treatment support.",
+        asst_name:"Assistant",
+        hours_title:"Working hours",
+        d_thu:"Thursday", d_fri:"Friday", d_sat:"Saturday",
+        d_sun:"Sunday", d_mon:"Monday", d_tue:"Tuesday", d_wed:"Wednesday",
+        closed:"Closed",
+        map_title:"Location",
+        map_sub:"Find us in Shkodër. Use Maps button or view the map below.",
+        footer_right:"Created by Albanian"
+      },
+      it: {
+        top_sub: "Clinica dentale • Shkodër",
+        nav_services: "Servizi",
+        nav_prices: "Prezzi",
+        nav_hours: "Orari",
+        call_btn: "Chiama",
+        ig_btn: "Instagram",
+        hero_title: "Cura pulita. Risultato premium.",
+        hero_desc: "Clinica dentale moderna a Shkodër. Focus su igiene, trattamenti precisi e comunicazione chiara.",
+        pill_1: "✅ Sterilizzazione rigorosa",
+        pill_2: "✅ Standard elevato",
+        pill_3: "✅ Cura professionale",
+        chip_map: "📍 Posizione",
+        chip_prices: "💰 Prezzi",
+        chip_hours: "🕒 Orari",
+        addr_k: "📍 Indirizzo",
+        addr_v: "Siper Union bank, Rruga Studenti, Shkodër 4001",
+        open_maps: "Apri su Google Maps →",
+        contact_k: "📞 Contatto",
+        contact_sub: "Tocca WhatsApp per prenotare.",
+        services_title: "Servizi",
+        services_desc: "I nostri 6 servizi principali:",
+        srv_1:"Impianto", srv_1b:"Impianto",
+        srv_2:"Trattamento canalare", srv_2b:"Canale",
+        srv_3:"Corona", srv_3b:"Corona",
+        srv_4:"Sbiancamento", srv_4b:"Sbiancamento",
+        srv_5:"Otturazione", srv_5b:"Otturazione",
+        srv_6:"Pulizia professionale", srv_6b:"Pulizia",
+        why_title:"Perché noi?",
+        why_desc:"Ambiente molto pulito, attrezzature moderne e cura del paziente. Obiettivo: risultato sicuro e naturale.",
+        trust_1:"Igiene & sterilizzazione", trust_1b:"Sicurezza",
+        trust_2:"Comunicazione chiara", trust_2b:"Chiarezza",
+        trust_3:"Risultati premium", trust_3b:"Qualità",
+        prices_title:"Prezzi (ALL)",
+        p1:"Controllo / Consulenza",
+        p2:"Pulizia professionale",
+        p3:"Otturazione",
+        p4:"Trattamento canalare",
+        p5:"Sbiancamento",
+        p6:"Corona",
+        p7:"Impianto",
+        prices_note:"Prezzi indicativi. Per un preventivo preciso, contattaci su WhatsApp.",
+        team_title:"Team",
+        role_dentist:"Dentista",
+        role_reception:"Reception & Assistente dentale",
+        role_asst:"Assistente dentale",
+        bio_1:"Trattamenti moderni e cura professionale del paziente.",
+        bio_2:"Standard elevati e lavoro preciso per ogni trattamento.",
+        bio_3:"Appuntamenti, prezzi e supporto in clinica.",
+        bio_4:"Sterilizzazione, preparazione e supporto durante i trattamenti.",
+        asst_name:"Assistente",
+        hours_title:"Orari di lavoro",
+        d_thu:"Giovedì", d_fri:"Venerdì", d_sat:"Sabato",
+        d_sun:"Domenica", d_mon:"Lunedì", d_tue:"Martedì", d_wed:"Mercoledì",
+        closed:"Chiuso",
+        map_title:"Posizione",
+        map_sub:"Ci trovi a Shkodër. Usa Maps o guarda la mappa qui sotto.",
+        footer_right:"Created by Albanian"
+      }
+    };
+
+    const langButtons = {
+      sq: document.getElementById("langSQ"),
+      en: document.getElementById("langEN"),
+      it: document.getElementById("langIT"),
+    };
+
+    function applyLang(lang){
+      const data = dict[lang] || dict.sq;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if(data[key]) el.textContent = data[key];
+      });
+      Object.keys(langButtons).forEach(k=>{
+        langButtons[k].classList.toggle("active", k===lang);
+      });
+      localStorage.setItem("lang", lang);
+    }
+
+    langButtons.sq.addEventListener("click", ()=>applyLang("sq"));
+    langButtons.en.addEventListener("click", ()=>applyLang("en"));
+    langButtons.it.addEventListener("click", ()=>applyLang("it"));
+
+    const savedLang = localStorage.getItem("lang") || "sq";
+    applyLang(savedLang);
   </script>
 </body>
 </html>
