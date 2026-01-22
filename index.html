@@ -368,7 +368,6 @@
       font-weight:900;
     }
 
-    /* Floating button to ORARI */
     .floatDown{
       position:fixed;
       right:16px;
@@ -413,6 +412,7 @@
           <button id="langSQ" class="active">SQ</button>
           <button id="langEN">EN</button>
           <button id="langIT">IT</button>
+          <button id="langTR">TR</button>
         </div>
 
         <div class="toggle" id="themeToggle" title="Theme">
@@ -424,7 +424,7 @@
         <a class="btn" href="#prices" data-i18n="nav_prices">Çmimet</a>
         <a class="btn" href="#orari" data-i18n="nav_hours">Orari</a>
 
-        <a class="btn primary" id="whBtn" target="_blank"
+        <a class="btn primary" target="_blank"
            href="https://wa.me/355695820147?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20dental%20services%20and%20book%20an%20appointment.%20Could%20you%20please%20help%20me%3F">
           WhatsApp
         </a>
@@ -462,7 +462,7 @@
         <div class="v" data-i18n="addr_v">Siper Union bank, Rruga Studenti, Shkodër 4001</div>
         <div class="sub">
           <a class="link" target="_blank"
-             href="https://www.google.com/maps/search/?api=1&query=Siper%20Union%20bank%2C%20Rruga%20Studenti%2C%20Shkod%C3%ABr%204001"
+             href="https://www.google.com/maps/search/?api=1&query=Akturk%20Dental%20Shkoder"
              data-i18n="open_maps">
             Hap në Google Maps →
           </a>
@@ -538,12 +538,12 @@
         </div>
         <div class="member">
           <div class="name">Egi Gjori</div>
-          <div class="role" data-i18n="role_reception">Reception & Dental Assistant</div>
+          <div class="role" data-i18n="role_reception">Recepsion & Asistente dentare</div>
           <div class="small" data-i18n="bio_3">Organizim i radhës, çmime dhe asistencë në klinikë.</div>
         </div>
         <div class="member">
           <div class="name" data-i18n="asst_name">Asistent/e</div>
-          <div class="role" data-i18n="role_asst">Dental Assistant</div>
+          <div class="role" data-i18n="role_asst">Asistente dentare</div>
           <div class="small" data-i18n="bio_4">Sterilizim, përgatitje dhe ndihmë gjatë trajtimeve.</div>
         </div>
       </div>
@@ -571,7 +571,7 @@
         <iframe
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Siper%20Union%20bank,%20Rruga%20Studenti,%20Shkod%C3%ABr%204001&output=embed">
+          src="https://www.google.com/maps?q=Akturk%20Dental%20Shkoder&output=embed">
         </iframe>
       </div>
     </section>
@@ -607,7 +607,7 @@
       setTheme(current === "dark" ? "light" : "dark");
     });
 
-    // i18n (SQ / EN / IT)
+    // i18n (SQ / EN / IT / TR)
     const dict = {
       sq: {
         top_sub: "Shërbime dentare • Shkodër",
@@ -785,6 +785,65 @@
         map_title:"Posizione",
         map_sub:"Ci trovi a Shkodër. Usa Maps o guarda la mappa qui sotto.",
         footer_right:"Created by Albanian"
+      },
+      tr: {
+        top_sub: "Diş kliniği • İşkodra",
+        nav_services: "Hizmetler",
+        nav_prices: "Fiyatlar",
+        nav_hours: "Çalışma Saatleri",
+        call_btn: "Ara",
+        ig_btn: "Instagram",
+        hero_title: "Temiz bakım. Premium sonuç.",
+        hero_desc: "İşkodra’da modern diş kliniği. Hijyen, doğru tedavi ve net iletişim odaklı.",
+        pill_1: "✅ Sıkı sterilizasyon",
+        pill_2: "✅ Yüksek standart",
+        pill_3: "✅ Profesyonel bakım",
+        chip_map: "📍 Konum",
+        chip_prices: "💰 Fiyatlar",
+        chip_hours: "🕒 Saatler",
+        addr_k: "📍 Adres",
+        addr_v: "Siper Union bank, Rruga Studenti, Shkodër 4001",
+        open_maps: "Google Maps’te aç →",
+        contact_k: "📞 İletişim",
+        contact_sub: "Hızlı randevu için WhatsApp’a tıkla.",
+        services_title: "Hizmetler",
+        services_desc: "En çok yapılan 6 işlem:",
+        srv_1:"İmplant", srv_1b:"Implant",
+        srv_2:"Kanal tedavisi", srv_2b:"Root canal",
+        srv_3:"Kaplama (Kurorë)", srv_3b:"Crown",
+        srv_4:"Diş beyazlatma", srv_4b:"Whitening",
+        srv_5:"Dolgu", srv_5b:"Filling",
+        srv_6:"Diş taşı temizliği", srv_6b:"Cleaning",
+        why_title:"Neden biz?",
+        why_desc:"Çok temiz ortam, modern ekipman ve sakin hasta yaklaşımı. Hedef: güvenli ve doğal sonuç.",
+        trust_1:"Sterilizasyon & hijyen", trust_1b:"Güvenlik",
+        trust_2:"Net iletişim", trust_2b:"Şeffaflık",
+        trust_3:"Premium sonuç", trust_3b:"Kalite",
+        prices_title:"Fiyatlar (ALL)",
+        p1:"Kontrol / Muayene",
+        p2:"Diş taşı temizliği",
+        p3:"Dolgu",
+        p4:"Kanal tedavisi",
+        p5:"Beyazlatma",
+        p6:"Kaplama (Crown)",
+        p7:"İmplant",
+        prices_note:"Fiyatlar yaklaşık aralıktır. Net fiyat için WhatsApp’tan yazın.",
+        team_title:"Ekip",
+        role_dentist:"Diş Hekimi",
+        role_reception:"Resepsiyon & Diş Asistanı",
+        role_asst:"Diş Asistanı",
+        bio_1:"Modern tedaviler ve profesyonel hasta bakımı.",
+        bio_2:"Her tedavide yüksek standart ve titiz çalışma.",
+        bio_3:"Randevu, fiyat bilgisi ve klinik içi destek.",
+        bio_4:"Sterilizasyon, hazırlık ve tedavi sırasında destek.",
+        asst_name:"Asistan",
+        hours_title:"Çalışma Saatleri",
+        d_thu:"Perşembe", d_fri:"Cuma", d_sat:"Cumartesi",
+        d_sun:"Pazar", d_mon:"Pazartesi", d_tue:"Salı", d_wed:"Çarşamba",
+        closed:"Kapalı",
+        map_title:"Konum",
+        map_sub:"İşkodra’da bulunuyoruz. Maps butonunu kullan veya haritaya bak.",
+        footer_right:"Created by Albanian"
       }
     };
 
@@ -792,6 +851,7 @@
       sq: document.getElementById("langSQ"),
       en: document.getElementById("langEN"),
       it: document.getElementById("langIT"),
+      tr: document.getElementById("langTR"),
     };
 
     function applyLang(lang){
@@ -806,9 +866,9 @@
       localStorage.setItem("lang", lang);
     }
 
-    langButtons.sq.addEventListener("click", ()=>applyLang("sq"));
-    langButtons.en.addEventListener("click", ()=>applyLang("en"));
-    langButtons.it.addEventListener("click", ()=>applyLang("it"));
+    Object.keys(langButtons).forEach(k=>{
+      langButtons[k].addEventListener("click", ()=>applyLang(k));
+    });
 
     const savedLang = localStorage.getItem("lang") || "sq";
     applyLang(savedLang);
