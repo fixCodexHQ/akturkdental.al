@@ -90,7 +90,7 @@
     .igTop{
       display:inline-flex;
       align-items:center;
-      gap:8px;
+      gap:9px;
       padding:9px 12px;
       border-radius:999px;
       border:1px solid var(--line);
@@ -103,16 +103,16 @@
       user-select:none;
     }
     .igIcon{
-      width:22px;height:22px;
-      border-radius:8px;
+      width:28px;height:28px;
+      border-radius:10px;
       display:flex;
       align-items:center;
       justify-content:center;
       background: var(--chip);
       border:1px solid var(--line);
-      font-weight:1000;
-      line-height:1;
+      color:#111827;
     }
+    .igText{ font-weight:1000; }
 
     /* Language */
     .lang{
@@ -304,8 +304,17 @@
 
         <div class="right">
           <a class="igTop" target="_blank" href="https://www.instagram.com/akturkdental/" aria-label="Instagram">
-            <span class="igIcon">⌁</span>
-            <span data-i18n="ig_btn">Instagram</span>
+            <span class="igIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z"
+                  stroke="currentColor" stroke-width="2" />
+                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+                  stroke="currentColor" stroke-width="2" />
+                <path d="M17.5 6.5h.01"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="igText" data-i18n="ig_btn">Instagram</span>
           </a>
 
           <div class="lang" title="Language">
